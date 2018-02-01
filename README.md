@@ -2,23 +2,23 @@
 
 # Emitable
 
-Emitable contains all of the types that all [fsm](https://github.com/fsm/fsm) [targets](https://github.com/search?q=topic%3Afsm-target+org%3Afsm&type=Repositories) are expected to implement in their Emitter.
+Emitable contains all of the types that all [FSM](https://github.com/fsm/fsm) [targets](https://github.com/search?q=topic%3Afsm-target+org%3Afsm&type=Repositories) are expected to implement in their Emitter.
 
 ## What Are These?
 
-An [Emitter](https://github.com/fsm/fsm/blob/master/fsm.go#L20-L22) is responsible for sending messages to the user interacting with your conversational interface.
+An [Emitter](https://github.com/fsm/fsm/blob/master/fsm.go#L23-L27) is responsible for sending messages to the user interacting with your conversational interface.
 
-All fsm targets implement a unique Emitter to handle how to send messages to the users for their specific platform.
+All FSM targets implement a unique Emitter to handle how to send messages to the users for their specific platform.
 
-Emitables are the officially supported definitions of data that can be sent to an Emitter.  There's a promise that all fsm targets will handle the interfaces provided in this repository (as long as it makes sense within the context of the target).
+Emitables are the officially supported definitions of data that can be sent to an Emitter.  There's a promise that all FSM targets will handle the interfaces provided in this repository (as long as it makes sense within the context of the target).
 
 In the event that an emitable does not make sense, the target will degrade gracefully in handling it. For example, [fsm/alexa](https://github.com/fsm/alexa) [does not handle typing](https://github.com/fsm/alexa/blob/master/emitter.go#L82-L84), but it degrades gracefully by doing nothing.
 
 ## Usage
 
-You're going to use these emitables as parameters to the [Emitter](https://github.com/fsm/fsm/blob/master/fsm.go#L20-L22).[Emit](https://github.com/fsm/fsm/blob/master/fsm.go#L21) function.
+You're going to use these emitables as parameters to the [Emitter](https://github.com/fsm/fsm/blob/master/fsm.go#L23-L27).[Emit](https://github.com/fsm/fsm/blob/master/fsm.go#L26) function.
 
-Following the philosophies of fsm, Emit should only be called in the EntryAction of a BuildState.
+Following the philosophies of FSM, Emit should only be called in the EntryAction of a BuildState.
 
 ```go
 package states
